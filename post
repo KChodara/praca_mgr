@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+
+for d in *; do # First level i.e. 2014, 2013 folders.
+
+    if [[ $(echo $d | grep -E "^[[:digit:]]{1,}$") ]]
+    then
+    
+    cd $d/postProcessing/forceCoeffs1/0
+    line=$( tail -n 1 forceCoeffs.dat )    
+    y=$(echo $line | awk '{print $3}')   
+    cd ../../../..
+    
+    echo $d $y >> results
+    
+fi
+done
+

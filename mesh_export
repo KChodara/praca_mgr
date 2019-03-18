@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+
+new="mesh_a"
+mkdir $new
+cd $1
+for d in *; do # First level i.e. 2014, 2013 folders.
+
+    cp $d/SYS/MECH/*.msh ../$new/$d.msh
+    
+    
+
+done
+

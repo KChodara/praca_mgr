@@ -1,0 +1,15 @@
+#!/bin/sh
+
+while read i; do
+    cp -r base $i
+	cp mesh_a/$i $i/mesh.msh
+    cd $i
+    fluentMeshToFoam mesh.msh
+    changeDictionary
+    potentialFoam
+    simpleFoam
+    cd ..
+    
+done < $1
+
+
